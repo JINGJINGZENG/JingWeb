@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    资源分享
+{% endblock %}
+
+{% block content %}
+    <!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div class="model-details-title" style="text-indent: 2em">
+            资源分享
+        </div>
+        <div class="model-details">
+            {% for myres in resList %}
+            <div class="res-model" style="margin-left: 20px;margin-right: 20px;">
+                <img src="{% static 'img/newsicon.gif' %}">
+                <a href="{% url 'resource:resourceDetail' myres.id %}"><b>{{ myres.title }}</b></a>
+                <span>【{{ myres.publishDate|date:"Y-m-d" }}】</span>
+                <!-- 添加文章简要说明 -->
+                <p style="margin-left: 20px;margin-right: 20px;">{{ myres.mytxt|truncatechars:"50" }}...</p>
+            </div>
+            {% endfor %}
+        <br>
+        <!-- 页码 -->
+            {% if pageData %}
+            <div class="paging">
+                <ul id="pages" class="pagination">
+                    {% if pageData.first %}
+                    <li><a href="?page=1">1</a> </li>
+                    {% endif %}
+                    {% if pageData.left %}
+                    {% if pageData.left_has_more %}
+                    <li><span>...</span></li>
+                    {% endif %}
+                    {% for i in pageData.left %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                    <li class="active"><a href="?page={{ pageData.page }}">
+                        {{ pageData.page }}</a> </li>
+                    {% if pageData.right %}
+                    {% for i in pageData.right %}
+                    <li><a href="?page={{ i }}">{{ i }}</a> </li>
+                    {% endfor %}
+                    {% if pageData.right_has_more %}
+                    <li><span>...</span></li>
+                    {% endif %}
+                    {% endif %}
+                    {% if pageData.last %}
+                    <li><a href="?page={{ pageData.total_pages }}">
+                        {{ pageData.total_pages }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

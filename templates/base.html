@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-wideth, initial-scale=1">
+    <title>曾晶晶的个人网站 |{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+
+<body class="background">
+    <!-- 头部 -->
+    <div class="container-fluid top" style="background: transparent; color:#fdfbfb">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-5" style="margin-left: 100px">
+                <h1 style="font-family: 华文中宋,serif">
+                    <a href="{% url 'homepage' %}">曾晶晶的个人网站</a>
+                </h1>
+            </div>
+            <div class="col-md-3 hidden-xs" style="margin-right: 100px">
+                <br>
+                <h2 style="font-family: 仿宋,serif">明德行远，交通天下</h2>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+    </div>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="nav-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example" aria-expanded="false">
+                    <span>导航栏</span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example">
+                <ul class="nav navbar-nav" style="width: 100%;">
+                    <li class="nav-top" id="home">
+                        <a href="{% url 'homepage' %}">首页</a>
+                    </li>
+                    <li class="dropdown nav-top" id="resume">
+                        <a id="first-menu" href="#" class="dropdown-toggle on" data-toggle="dropdown">个人简介</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'resume:baseinfo' %}">个人简历</a></li>
+                            <li><a href="{% url 'resume:experience' %}">科研实践</a></li>
+                            <li><a href="{% url 'resume:proof' %}">证明材料</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-top" id="projects">
+                        <a id="first-menu" href="{% url 'projects:projects' %}">实践项目</a>
+                    </li>
+                    <li class="nav-top" id="resource">
+                        <a id="first-menu" href="{% url 'resource:resource' %}">资源分享</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <!-- 页脚 -->
+    <div class="container web-footer">
+        <!-- 站点地图 -->
+        <div class="row" id="map-footer">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <dl style="	margin-top:40px;">
+                    <dt>相关链接</dt>
+                    <dd><a href="http://www.cqjtu.edu.cn/">重庆交通大学</a></dd>
+                    <dd><a href="http://jw.cqjtu.edu.cn/">重庆交通大学教务处</a></dd>
+                    <dd><a href="http://math.cqjtu.edu.cn/">重庆交通大学数学与统计学院</a></dd>
+                    <dd><a href="https://www.cqu.edu.cn/">重庆大学</a></dd>
+                    <dd><a href="http://sci.cqu.edu.cn/">重庆大学数学与统计学院</a></dd>
+                    <dd><a href="http://graduate.cqu.edu.cn/">重庆大学研究生院</a></dd>
+                </dl>
+                <dl>
+                    <dt>联系方式</dt>
+                    <dd>
+                        <a class="phone ant glyphicon glyphicon-phone">19946830737</a>
+                    </dd>
+                    <dd>
+                        <a class="mail ant glyphicon glyphicon-envelope">jingjingzengcqjtu@163.com</a>
+                    </dd>
+                </dl>
+                <!-- 版权 -->
+                <div id="patent-footer">
+                   <p>© 2022 Hazel.Zeng All Rights Reserved. </p>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+<script>
+    $(function() {
+        $(".dropdown").mouseover(function () {
+            $(this).addClass("open");
+        });
+        $(".dropdown").mouseleave(function () {
+            $(this).removeClass("open");
+        });
+    })
+</script>
+<script type="text/JavaScript">
+    $('#{{active_menu}}').addClass("active");
+</script>
+<script type="text/JavaScript">
+    $('#{{sub_menu}}').addClass("active");
+</script>
+
+</body>
+
+</html>

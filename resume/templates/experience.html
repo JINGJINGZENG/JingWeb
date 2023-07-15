@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+{% block title %}
+    个人信息
+{% endblock %}
+
+{% block content %}
+    <!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div class="row row-3">
+            <!-- 侧边导航栏 -->
+            <div class="col-md-3">
+                <div class="model-title">
+                    个人简介
+                </div>
+                <div class="model-list">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="baseinfo">
+                            <a href="{% url 'resume:baseinfo' %}">基本信息</a>
+                        </li>
+                        <li class="list-group-item" id="experience">
+                            <a href="{% url 'resume:experience' %}">科研竞赛</a>
+                        </li>
+                        <li class="list-group-item" id="proof">
+                            <a href="{% url 'resume:proof' %}">证明材料</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 说明文字和图片 -->
+            <div class="col-md-9">
+                <div class="model-details-title">
+                    科研竞赛
+                </div>
+                <div class="model-details">
+                    <h4>科研经历</h4>
+                        <ol>
+                            <li>《时滞分数阶复神经网络的鲁棒渐近稳定性和镇定》<span style="float:right">2020.12 - 至今</span>
+                                <ul>
+                                    <li>项目内容：研究了一类具有参数不确定性和时滞的分数阶复神经网络的鲁棒渐近稳定性和镇定问题。</li>
+                                    <li>承担工作：
+                                        <ol>
+                                            <li>推导：利用同胚定理，得到了系统平衡点存在唯一性的充分条件；基于几个引理，分别建立模型鲁棒渐近稳定和镇定的充分判据</li>
+                                            <li>仿真：应用MATLAB通过两个算例分别验证了稳定性和镇定理论结果的可行性</li>
+                                            <li>写作：用LaTeX进行对文章的摘要、引言、引理、定理等内容进行撰写</li>
+                                        </ol>
+                                    </li>
+                                    <li>目前成果：<br><b>Jingjing Zeng</b>, Xujun Yang, Lu Wang, Xiaofeng Chen (2021)<br>
+                                        <a href="https://www.hindawi.com/journals/ddns/2021/5653791/">
+                                            “Robust asymptotical stability and stabilization of fractional-order complex-valued neural networks with delay”,
+                                        </a><br>
+                                        Discrete Dynamics in Nature and Society (ISSN 1026-0226). </li>
+                                </ul>
+                            </li>
+                            <li>省级大创 ——《 StuFri—快捷方便的寻找学习伙伴平台 》<span style="float:right">2020.03 - 2021.04</span>
+                                <ul>
+                                    <li>项目内容：以帮助大学生在备考和学术比赛中找到同伴为目的，采用数据库、信息检索、推荐系统等计算机技术试开发一款微信小程序。</li>
+                                    <li>承担工作：概要设计、市场调研、产品和技术分析、进度管理。</li>
+                                    <li>目前成果：软件著作权两项</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    <div class="tline"></div>
+                    <h4>竞赛经历</h4>
+                        <table>
+                            <tr>
+                                <td>全国大学生电子商务“创新、创意及创业”挑战赛（核心成员）</td>
+                                <td>省二等奖</td>
+                                <td style="text-align:right">2020.10 - 2021.07</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学数学建模竞赛（队长）</td>
+                                <td>校一等奖</td>
+                                <td style="text-align:right">2019.05 - 2020.06</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学第七届大学生程序设计大赛</td>
+                                <td>校二等奖</td>
+                                <td style="text-align:right">2020.12</td>
+                            </tr>
+                            <tr>
+                                <td>全国大学生电子商务“创新、创意及创业”挑战赛（队长）</td>
+                                <td>校三等奖</td>
+                                <td style="text-align:right">2019.10 - 2020.07</td>
+                            </tr>
+                        </table>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9 annotation basic">
+                        <p>注：以上奖状或技能证书以及补充材料见<a href={% url "resume:proof" %}>证明材料</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</html>

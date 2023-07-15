@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    项目概况
+{% endblock %}
+{% block content %}
+<!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div>
+            <div class="model-details-project-title">
+                {{ mypro.title }}
+                <div class="model-foot">发布时间：{{ mypro.publishDate|date:"Y-m-d" }} &nbsp;
+                    &nbsp; 浏览次数：{{ mypro.views }}</div>
+            </div>
+            <div class="model-details" style="margin-bottom: 120px">
+                {{ mypro.description | safe }}
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

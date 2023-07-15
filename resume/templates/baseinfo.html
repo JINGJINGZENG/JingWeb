@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+{% block title %}
+    个人简历
+{% endblock %}
+
+{% block content %}
+    <!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div class="row row-3">
+            <!-- 侧边导航栏 -->
+            <div class="col-md-3">
+                <div class="model-title">
+                    个人简介
+                </div>
+                <div class="model-list">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="baseinfo">
+                            <a href="{% url 'resume:baseinfo' %}">个人简历</a>
+                        </li>
+                        <li class="list-group-item" id="experience">
+                            <a href="{% url 'resume:experience' %}">科研竞赛</a>
+                        </li>
+                        <li class="list-group-item" id="proof">
+                            <a href="{% url 'resume:proof' %}">证明材料</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 说明文字和图片 -->
+            <div class="col-md-9">
+                <div class="model-details-title">
+                   个人简历
+                </div>
+                <div class="model-details">
+                    <div class="col-md-4" style="border-right:1px #637694	 solid; ">
+                        <img class="img-responsive" src="{% static 'img/selfie2.JPG' %} ">
+                        <h3 align="center"><b>曾晶晶</b></h3>
+                        <table style="text-indent: 0">
+                        <tr>
+                            <td>年龄：21</td>
+                        </tr>
+                        <tr>
+                            <td>民族：汉族</td>
+                        </tr>
+                        <tr>
+                            <td>籍贯：湖南邵阳</td>
+                        </tr>
+                        <tr>
+                            <td>现居地：重庆南岸区</td>
+                        </tr>
+                        <tr>
+                            <td>政治面貌：中共预备党员</td>
+                        </tr>
+                        </table>
+                        <h4 align="center" style="border-bottom:1px #637694	 solid;"><b>求职意向</b></h4>
+                        <table style="text-indent: 0em">
+                            <tr>
+                                <td>期望职位：算法工程师、数据挖掘(算法)工程师、数据分析师</td>
+                            </tr>
+                            <tr>
+                                <td>工作地点：重庆、湖南、深圳</td>
+                            </tr>
+                            <tr>
+                                <td>期待薪资：8000-12000</td>
+                            </tr>
+                        </table>
+                        <h4 align="center" style="border-bottom:1px #637694	 solid;"><b>联系方式</b></h4>
+                        <table style="text-indent: 0em">
+                            <tr>
+                                <td>手机：19936830737</td>
+                            </tr>
+                            <tr>
+                                <td>邮箱：jingjingzengcqjtu@163.com</td>
+                            </tr>
+                            <tr>
+                                <td>微信：jingjingzeng813</td>
+                            </tr>
+                            <tr>
+                                <td>QQ：1144066751</td>
+                            </tr>
+                        </table>
+
+                        <p>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>教育背景</h4>
+                        <table>
+                        <tr>
+                            <td>本科学校：重庆交通大学</td>
+                            <td>专业：信息与计算科学</td>
+                            <td>2018.09-2022.06</td>
+                        </tr>
+                        <tr>
+                            <td>CPA：4.01/5.0</td>
+                            <td>专业排名：2/58</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>英语四级：530</td>
+                            <td>英语六级：511</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                        <h5>主干科目成绩：</h5>
+                        <table>
+                        <tr>
+                            <td>数值计算方法B(Ⅰ)：98</td>
+                            <td>数值计算方法B(Ⅱ)：100</td>
+                            <td>运筹学B ：96</td>
+                        </tr>
+                        <tr>
+                            <td>算法设计与分析A：99</td>
+                            <td>数字信号处理A：97</td>
+                            <td>数据结构：96</td>
+                        </tr>
+                        <tr>
+                            <td>数字信号处理A：97</td>
+                            <td>数据挖掘技术：95</td>
+                            <td>Java程序设计：93</td>
+                        </tr>
+                        </table>
+                        <div class="tline"></div>
+                        <h4>实践经历</h4>
+                        <table>
+                            <tr>
+                                <td>重交数统学院信计1802班 学习委员</td>
+                                <td></td>
+                                <td>2020.09至今</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学篮球联赛（队长）</td>
+                                <td>女子组二等奖</td>
+                                <td>2019.10-2019.12</td>
+                            </tr>
+                            <tr>
+                                <td>数统学院团支部风采大赛（负责人）</td>
+                                <td>二等奖</td>
+                                <td>2019.03-2019.04</td>
+                            </tr>
+                            <tr>
+                                <td>重交数统学院数学类1803班 班长</td>
+                                <td> </td>
+                                <td>2018.09-2019.09</td>
+                            </tr>
+                        </table>
+                        <div class="tline"></div>
+                        <h4>荣誉奖励</h4>
+                        <table>
+                            <tr>
+                                <td>重庆交通大学三好学生</td>
+                                <td> </td>
+                                <td>2020-2021</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学科技创新先进个人</td>
+                                <td> </td>
+                                <td>2020-2021</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学一等奖学金</td>
+                                <td> </td>
+                                <td>2019-2020</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学三好学生</td>
+                                <td> </td>
+                                <td>2019-2020</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学优秀学生干部</td>
+                                <td> </td>
+                                <td>2018-2019</td>
+                            </tr>
+                            <tr>
+                                <td>重庆交通大学三等奖学金</td>
+                                <td> </td>
+                                <td>2018-2019</td>
+                            </tr>
+                        </table>
+                        <div class="tline"></div>
+                        <h4>我的技能</h4>
+                        <ul>
+                           <li>计算机语言：Python, C语言, C++, Java, R语言, HTML, CSS, Django</li>
+                           <li>专业软件：Excel, MATLAB, MySQL, Tableau, LaTeX, PowerDesigner</li>
+                        </ul>
+                        <div class="tline"></div>
+                        <h4>自我评价</h4>
+                        <p>
+                            本科期间，我勤奋刻苦，潜心学习，为我更深入的学习研究以及工作打下了扎实的基础。除专业知识外，我重视英语能力的培养，
+                            具备了较好的英语听说读写能力，于2021年8月取得IELTS均分6分的成绩。课余时间，我喜欢运动。
+                            实践方面，我在前三年中担任过班长和学习委员，我的组织能力、沟通能力以及时间管理能力也有了明显提高。
+                        </p>
+                        <p>
+                            对于一名优秀的大学生来说，停留在课堂的学习时远远不够的，于是我尝试利用各种科研机会、学科课程设计、专业学科竞赛
+                            就自己感兴趣的问题进行探索性的研究。通过大量的科研竞赛训练，我的建模能力、编程能力、撰写论文能力得到大幅提升，
+                            同时认识到良好的科研思维对项目完成的重要性。
+                        </p>
+                        <p>
+                            做事塌实认真，能吃苦耐劳；学习潜力强，能够很快的理解新事物；性格开朗，诚实正直，谦和自信，用心上进，有较强的社会适应能力。
+                            工作踏实，认真细致，具有强烈的事业心和工作职责心。
+                        </p>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9 annotation basic">
+                        <p>注：以上奖状或技能证书以及补充材料见<a href={% url "resume:proof" %}>证明材料</a></p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+</html>

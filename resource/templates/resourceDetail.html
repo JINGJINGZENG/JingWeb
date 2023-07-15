@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    资源简介
+{% endblock %}
+{% block content %}
+<!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div>
+            <div class="model-details-resource-title">
+                {{ myres.title }}
+                <div class="model-foot">发布时间：{{ myres.publishDate|date:"Y-m-d" }} &nbsp;
+                    &nbsp; 浏览次数：{{ myres.views }}</div>
+            </div>
+            <div class="model-details" style="margin-bottom: 120px">
+                {{ myres.description | safe }}
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

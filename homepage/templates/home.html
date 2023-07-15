@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    首页
+{% endblock %}
+{% block content %}
+    <!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div class="row row-3">
+            <div class="col-md-5">
+                <!-- 轮播图 -->
+                <div id="photo" class="carousel slide" data-ride="carousel" data-interval="4000">
+                        <ol class="carousel-indicators">
+                            <li data-target="#photo" data-slide-to="0" class="active"></li>
+                            <li data-target="#photo" data-slide-to="1"></li>
+                            <li data-target="#photo" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{% static 'img/photo1.jpg' %}" alt= "照片1">
+                            </div>
+                            <div class="item">
+                                <img src="{% static 'img/photo2.jpg' %}" alt= "照片2">
+                            </div>
+                            <div class="item">
+                                <img src="{% static 'img/photo3.jpg' %}" alt= "照片3">
+                            </div>                         
+                        </div>
+                        <a class="left carousel-control" href="#photo" data-slide="prev"><span
+                            class="glyphicon glyphicon-chevron-left"></span></a>
+                        <a class="right carousel-control" href="#photo" data-slide="next"><span
+                            class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                <h3 align="center" style="color: #637694;">
+                    <a style="color:#637694;" href="{% url 'resume:baseinfo' %}"><b>曾晶晶</b></a>
+                </h3>
+                <p align="center" style="line-height:22px; padding-bottom:4px;border-bottom:1px #637694	 solid;
+	                                      border-bottom-left-radius: 10px;  border-bottom-right-radius: 10px;">
+                    女，21岁，重庆交通大学，信息与计算科学专业大四生。邮箱：jingjingzengcqjtu@163.com。联系电话：19936830737。
+                </p>
+                <br>
+            </div>
+            <div class="col-md-7">
+                <!-- 实践项目 -->
+                <div class="row row-3">
+                    <div class="col-md-12 col-pro">
+                        <span class="part1">
+                            <a href="{% url 'projects:projects' %}">实践项目</a>
+                        </span>
+                        <span class="part1 en">
+                            &nbsp;&nbsp;/Projects
+                        </span>
+                        <a class="btn btn-default btn-xs more-btn"
+                            href="{% url 'projects:projects' %}">+&nbsp;更多</a>
+                        <div class="line1">
+                            <div class="line2 theme"></div>
+                        </div>
+                        <ul class="list-unstyled list-pro">
+                            {% for mypro in proList %}
+                            <li>
+                                <a href="{% url 'projects:projectDetail' mypro.id%}">
+                                    {{ mypro.title|truncatechars:"15" }}
+                                </a>
+                                <span>【{{ mypro.publishDate|date:"Y-m-d" }}】</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <!-- 资源分享 -->
+                <div class="row row-3">
+                    <div class="col-md-12 col-pro">
+                        <span class="part1">
+                            <a href="{% url 'resource:resource' %}">资源分享</a>
+                        </span>
+                        <span class="part1 en">
+                            &nbsp;&nbsp;/Resources
+                        </span>
+                        <a class="btn btn-default btn-xs more-btn"
+                            href="{% url 'resource:resource' %}">+&nbsp;更多</a>
+                        <div class="line1">
+                            <div class="line2 theme"></div>
+                        </div>
+                        <ul class="list-unstyled list-pro">
+                            {% for myres in resList %}
+                            <li>
+                                <a href="{% url 'resource:resourceDetail' myres.id%}">
+                                    {{ myres.title|truncatechars:"25" }}
+                                </a>
+                                <span>【{{ myres.publishDate|date:"Y-m-d" }}】</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

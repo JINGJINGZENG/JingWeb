@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+{% block title %}
+    证明材料
+{% endblock %}
+
+{% block content %}
+    <!-- 主体内容 -->
+<div class="container">
+    <div class="mcontent">
+        <div class="row row-3">
+            <!-- 侧边导航栏 -->
+            <div class="col-md-3">
+                <div class="model-title">
+                    个人简介
+                </div>
+                <div class="model-list">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="baseinfo">
+                            <a href="{% url 'resume:baseinfo' %}">基本信息</a>
+                        </li>
+                        <li class="list-group-item" id="experience">
+                            <a href="{% url 'resume:experience' %}">科研竞赛</a>
+                        </li>
+                        <li class="list-group-item" id="proof">
+                            <a href="{% url 'resume:proof' %}">证明材料</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 说明文字和图片 -->
+            <div class="col-md-9">
+                <div class="model-details-title">
+                    证明材料
+                </div>
+                <div class="row">
+                    {% for proof in proofs %}
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="{{ proof.photo.url }}"><img src="{{proof.photo.url}}"></a>
+                            <div class="caption">
+                                <p>{{ proof.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div>
+                    {% if pageData %}
+                    <div class="paging">
+                        <ul id="pages" class="pagination">
+                            {% if pageData.first %}
+                            <li><a href="?page=1">1</a> </li>
+                            {% endif %}
+                            {% if pageData.left %}
+                            {% if pageData.left_has_more %}
+                            <li><span>...</span></li>
+                            {% endif %}
+                            {% for i in pageData.left %}
+                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endfor %}
+                            {% endif %}
+                            <li class="active"><a href="?page={{ pageData.page }}">
+                                {{ pageData.page }}</a> </li>
+                            {% if pageData.right %}
+                            {% for i in pageData.right %}
+                            <li><a href="?page={{ i }}">{{ i }}</a> </li>
+                            {% endfor %}
+                            {% if pageData.right_has_more %}
+                            <li><span>...</span></li>
+                            {% endif %}
+                            {% endif %}
+                            {% if pageData.last %}
+                            <li><a href="?page={{ pageData.total_pages }}">
+                                {{ pageData.total_pages }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+
+</html>
+
